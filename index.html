@@ -1,0 +1,92 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://api.fontshare.com/v2/css?f[]=spline-sans@300,400,600,700,500&display=swap" rel="stylesheet">
+    <link href="https://api.fontshare.com/v2/css?f[]=plus-jakarta-sans@800,400,500,600,700,300,200&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@preline/preline@1.0.0/dist/hs-ui.bundle.min.js"></script>
+    <style>
+      body {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+      }
+    </style>
+  </head>
+<body class="bg-white">
+
+    <header class="flex flex-wrap md:justify-start md:flex-nowrap z-50 w-full text-sm px-4 sm:px-0">
+        <nav class="mt-8 relative max-w-5xl w-full bg-gray-100 border rounded-[36px] mx-2 py-8 px-4 md:flex md:items-center md:justify-between md:py-4 md:px-6 lg:px-8 xl:mx-auto" aria-label="Global">
+          <div class="flex items-center justify-between">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+              </svg>    
+              <div class="text-xl ml-4 font-medium">Search</div>  
+        </div>
+        </nav>
+      </header>
+
+      <!--Main Temperature Area-->
+
+      <div class="max-w-5xl mx-auto mt-16">
+        <div class="grid grid-cols-4 items-center">
+          <div class="col-span-1">
+            <img src="Icons/Sunny.svg" class="h-[15rem] w-[15rem]">
+          </div>
+          <div class="col-span-2">
+            <div class="text-9xl font-bold mb-2">77°</div>
+            <div class="text-3xl font-medium text-gray-500">Sunny, Clear Skies</div>
+          </div>
+          <div class="col-span-1">
+            <div class="flex items-center">
+              <div class="text-4xl font-medium text-red-600 mr-2 p-3">H</div>
+              <div class="text-4xl font-medium ">82°</div>
+            </div>
+            <div class="flex items-center">
+              <div class="text-4xl font-medium text-blue-600 mr-2 p-4">L</div>
+              <div class="text-4xl font-medium ">60°</div>
+            </div>
+            <br>
+            <div class="text-3xl font-medium mb-2 text-red-600">Feels Like 60°</div>
+          </div>
+        </div>
+      </div>
+
+      <!--Hourly Area-->
+
+      <div class="text-3xl font-medium max-w-5xl mx-auto mt-16"> Hourly </div>
+      <div class="grid grid-cols-6 max-w-5xl mx-auto">
+        <div class="col-span-1 max-w-3xl mx-auto bg-gray-100 rounded-xl flex flex-col justify-center items-center px-6 py-6 mt-8">
+            <div class="font-medium text-xl text-gray-500"> Now </div>
+            <div> <img src="Icons/Sunny.svg" class="h-24 w-24"> </div>
+            <div class="font-medium text-2xl text-gray-500"> 7pm </div>
+        </div>
+        <div class="col-span-1 max-w-3xl mx-auto bg-gray-100 rounded-xl flex flex-col justify-center items-center px-6 py-6 mt-8">
+            <div class="font-medium text-xl text-gray-500"> Now </div>
+            <div> <img src="Icons/Night Cloudy.svg" class="h-24 w-24"> </div>
+            <div class="font-medium text-2xl text-gray-500"> 7pm </div>
+        </div>
+        <div class="col-span-1 max-w-3xl mx-auto bg-gray-100 rounded-xl flex flex-col justify-center items-center px-6 py-6 mt-8">
+            <div class="font-medium text-xl text-gray-500"> Now </div>
+            <div> <img src="Icons/Night Cloudy.svg" class="h-24 w-24"> </div>
+            <div class="font-medium text-2xl text-gray-500"> 7pm </div>
+        </div>
+        <div class="col-span-1 max-w-3xl mx-auto bg-gray-100 rounded-xl flex flex-col justify-center items-center px-6 py-6 mt-8">
+            <div class="font-medium text-xl text-gray-500"> Now </div>
+            <div> <img src="Icons/Night.svg" class="h-24 w-24"> </div>
+            <div class="font-medium text-2xl text-gray-500"> 7pm </div>
+        </div>
+        <div class="col-span-1 max-w-3xl mx-auto bg-gray-100 rounded-xl flex flex-col justify-center items-center px-6 py-6 mt-8">
+            <div class="font-medium text-xl text-gray-500"> Now </div>
+            <div> <img src="Icons/Night.svg" class="h-24 w-24"> </div>
+            <div class="font-medium text-2xl text-gray-500"> 7pm </div>
+        </div>
+        <div class="col-span-1 max-w-3xl mx-auto bg-gray-100 rounded-xl flex flex-col justify-center items-center px-6 py-6 mt-8">
+            <div class="font-medium text-xl text-gray-500"> Now </div>
+            <div> <img src="Icons/Night.svg" class="h-24 w-24"> </div>
+            <div class="font-medium text-2xl text-gray-500"> 7pm </div>
+        </div>
+      </div>
+</body>
+</html>
