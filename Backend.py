@@ -60,8 +60,8 @@ def get_location_coordinates_from_front_end():
     location = request.args.get('location')
     (lat, lon) = get_location_coordinates(location)
     response = {
-        'lat': lat,
-        'lon': lon
+        'latitude': lat,
+        'longitude': lon
     }
     return jsonify(response)
 
@@ -69,8 +69,18 @@ def get_location_coordinates_from_front_end():
 @app.route('/get_current_weather_data', methods=['POST'])
 def get_current_weather_data_from_backend():
     data = request.get_json()
-    lat = data['lat']
-    lon = data['lon']
+    lat = data['latitude']
+    lon = data['longitude']
+    weather_data = get_current_weather_data(lat, lon)
+    weather_response = format_current_weather_data(weather_data)
+    return jsonify(weather_response)
+
+# This is the function that would be called by the front-end to get the current weather data with a different parsing of the string input
+@app.route('/get_current_weather_data_different_parsing', methods=['POST'])
+def get_current_weather_data_from_backend_different_parsing():
+    data = request.get_json()
+    location = data['location']
+    (lat, lon) = get_location_coordinates(location)
     weather_data = get_current_weather_data(lat, lon)
     weather_response = format_current_weather_data(weather_data)
     return jsonify(weather_response)
