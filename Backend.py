@@ -1,14 +1,26 @@
 import requests
 import json
 from flask import Flask, request, jsonify
+from geopy.geocoders import Nominatim
+
+# Initialize the Nominatim geocoder
+geolocator = Nominatim(user_agent="my_app")
 
 def get_location_coordinates(location):
-    # Geocode the location to get the latitude and longitude
-    url = f"http://api.openweathermap.org/geo/1.0/direct?q={location}&appid=f8ae1807612b6b2200ee4c7b8ed502a8"
-    response = requests.get(url)
-    data = response.json()
-    lat = data[0]['lat']
-    lon = data[0]['lon']
+    try:
+        location_obj = geolocator.geocode(location)
+        if location_obj is not None:
+            lat = location_obj.latitude
+            lon = location_obj.longitude
+        else:
+            print("Error: Unable to geocode location")
+            lat = None
+            lon = None
+    except:
+        print("Error: Unable to geocode location")
+        lat = None
+        lon = None
+
     return (lat, lon)
 
 def get_current_weather_data(lat, lon):
