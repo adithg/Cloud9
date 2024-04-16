@@ -22,7 +22,7 @@ const App = () => {
         wind={60}
         feelsLike={60}
       />
-      <div className="text-3xl font-medium max-w-5xl mx-auto mt-16">Hourly</div>
+      <div className="text-3xl font-medium max-w-5xl mx-auto mt-16">Hourly </div>
       <div className="grid grid-cols-6 max-w-5xl mx-auto">
         <HourlyCard icon={icons.Sunny} time="7pm" />
         <HourlyCard icon={icons.NightCloudy} time="7pm" />
@@ -30,8 +30,8 @@ const App = () => {
         <HourlyCard icon={icons.Night} time="7pm" />
         <HourlyCard icon={icons.Night} time="7pm" />
         <HourlyCard icon={icons.Night} time="7pm" />
+      </div>      
       </div>
-    </div>
   );
 };
 
