@@ -7,7 +7,7 @@ const WindCard = ({ icon, speed }) => {
       <div>
         <img src={icon} className="h-24 w-24" alt="Wind Icon" />
       </div>
-      <div className="font-medium text-2xl text-gray-100">{speed}</div>
+      <div className="font-medium text-2xl text-gray-100">{speed} M/s</div>
     </div>
   );
 };

@@ -7,7 +7,7 @@ const Pressure = ({ icon, pressure }) => {
       <div>
         <img src={icon} className="h-24 w-24" alt="Pressure Icon" />
       </div>
-      <div className="font-medium text-2xl text-gray-100">{pressure}</div>
+      <div className="font-medium text-2xl text-gray-100">{pressure} hPa</div>
     </div>
   );
 };

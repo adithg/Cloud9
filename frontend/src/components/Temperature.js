@@ -9,24 +9,37 @@ const icons = {
   Night: Night,
 };
 
-const Temperature = ({ temperature, description, humidity, wind, feelsLike }) => {
+const Temperature = ({ temperature, description, humidity, feelsLike }) => {
+  // Default icon if no match is found or description is missing
+  const defaultIcon = Sunny; // Choose an appropriate default icon
+  // Safety check for description
+  const weatherIcon = description ? icons[description.split(',')[0]] || defaultIcon : defaultIcon;
+
   return (
     <div className="max-w-5xl mx-auto mt-16">
       <div className="grid grid-cols-4 items-center">
         <div className="col-span-1">
-          <img src={icons[description.split(',')[0]]} className="h-[15rem] w-[15rem]" alt="Weather Icon" />
+          <img src={weatherIcon} className="h-[15rem] w-[15rem]" alt="Weather Icon" />
         </div>
         <div className="col-span-2">
-          <div className="text-9xl font-bold mb-2 text-gray-100">{temperature}°</div>
-          <div className="text-3xl font-medium text-gray-100">{description}</div>
+          <div className="text-9xl font-bold mb-2 text-gray-100">
+            {temperature ? `${temperature}°F` : 'Loading...'}
+          </div>
+          <div className="text-3xl font-medium text-gray-100">
+            {description || 'Loading description...'}
+          </div>
         </div>
         <div className="col-span-1">
           <div className="flex items-center">
-            <div className="text-4xl font-medium text-gray-100 mr-2 p-3">Humidity</div>
-            <div className="text-4xl font-medium text-gray-100 ">{humidity}%</div>
+            <div className="text-4xl font-medium text-gray-100 mr-2 p-3">Humidity: </div>
+            <div className="text-4xl font-medium text-gray-100 ">
+              {humidity ? `${humidity}%` : 'Loading...'}
+            </div>
           </div>
           <br />
-          <div className="text-3xl font-medium mb-2 text-gray-100">Feels Like {feelsLike}°</div>
+          <div className="text-3xl font-medium mb-2 text-gray-100">
+            Feels Like:  {feelsLike ? `${feelsLike}°F` : 'Loading...'}
+          </div>
         </div>
       </div>
     </div>

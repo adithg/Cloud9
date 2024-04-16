@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Header from './Header';
 import Sunrise from './Sunrise';
 import Sunset from './Sunset';
@@ -28,25 +28,40 @@ const icons = {
 };
 
 const App = () => {
+  const [temperature, setTemperature] = useState(null);
+  const [sunrise, setSunrise] = useState('');
+  const [sunset, setSunset] = useState('');
+  const [pressure, setPressure] = useState(null);
+  const [windSpeed, setWindSpeed] = useState(null);
+  const [humidity, setHumidity] = useState(null);
+  const [feelsLike, setFeelsLike] = useState(null);
+  const [description, setDescription] = useState('');
   return (
     <div className="bg-gradient-to-b from-blue-600 to-sky-400">
-      <Header />
+      <Header 
+      setTemperature={setTemperature}
+      setSunrise={setSunrise}
+      setSunset={setSunset}
+      setPressure={setPressure}
+      setWindSpeed={setWindSpeed}
+      setHumidity={setHumidity}
+      setFeelsLike={setFeelsLike}
+      setDescription={setDescription}/>
       <Temperature
-        temperature={77}
-        description="Sunny, Clear Skies"
-        humidity={82}
-        wind={60}
-        feelsLike={60}
+        temperature={temperature}
+        description={description}
+        humidity={humidity}
+        wind={windSpeed}
+        feelsLike={feelsLike}
       />
       <div className="text-3xl font-medium max-w-5xl mx-auto mt-16 text-gray-100">
-        Hourly
+        Details
       </div>
-      <div className="grid grid-cols-5 max-w-5xl mx-auto">
-        <WindCard icon={icons.WindWhite} speed="34 kts" />
-        <Sunrise icon={icons.SunriseWhite} sunrise="7:19 am" />
-        <Sunset icon={icons.SunsetWhite} sunset="6:34 pm" />
-        <UVI icon={icons.UvWhite} uvi="78" />
-        <Pressure icon={icons.PressureWhite} pressure="12 mb" />
+      <div className="grid grid-cols-4 max-w-4xl mx-auto">
+        <WindCard icon={icons.WindWhite} speed={windSpeed} />
+        <Sunrise icon={icons.SunriseWhite} sunrise={sunrise} />
+        <Sunset icon={icons.SunsetWhite} sunset={sunset} />
+        <Pressure icon={icons.PressureWhite} pressure={pressure} />
       </div>
       <br></br>
       <br></br>

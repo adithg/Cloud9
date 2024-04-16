@@ -1,7 +1,16 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-const Header = () => {
+const Header = ({
+  setTemperature,
+  setSunrise,
+  setSunset,
+  setPressure,
+  setWindSpeed,
+  setHumidity,
+  setFeelsLike,
+  setDescription
+}) => {
   const [searchTerm, setSearchTerm] = useState('');
 
   const handleKeyDown = (event) => {
@@ -20,10 +29,17 @@ const Header = () => {
       return;
     }
 
-    axios.post('http://127.0.0.1:5000//get_current_weather_data_different_parsing', { location: term })
+    axios.post('http://127.0.0.1:5000/get_current_weather_data_different_parsing', { location: term })
       .then(response => {
-        const weatherData = response.data;
-        alert(JSON.stringify(weatherData));
+        const { temperature, sunrise, sunset, pressure, wind_speed, humidity, feels_like, description } = response.data;
+        setTemperature(temperature);
+        setSunrise(sunrise);
+        setSunset(sunset);
+        setPressure(pressure);
+        setWindSpeed(wind_speed);
+        setHumidity(humidity);
+        setFeelsLike(feels_like);
+        setDescription(description);
         setSearchTerm('');
       })
       .catch(error => {

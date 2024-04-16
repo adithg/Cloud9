@@ -35,8 +35,8 @@ def get_current_weather_data(lat, lon):
 def format_current_weather_data(data):
     city = data['name']
     country = data['sys']['country']
-    temperature = (data['main']['temp'] - 273.15) * 1.8 + 32
-    feels_like = (data['main']['feels_like'] - 273.15) * 1.8 + 32
+    temperature = int((data['main']['temp'] - 273.15) * 1.8 + 32)
+    feels_like = int((data['main']['feels_like'] - 273.15) * 1.8 + 32)
     humidity = data['main']['humidity']
     weather_description = data['weather'][0]['description']
     wind_speed = data['wind']['speed']
