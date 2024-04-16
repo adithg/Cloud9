@@ -1,8 +1,9 @@
 import requests
 import json
-from flask import Flask, app, request, jsonify
+from flask import Flask, request, jsonify
 from geopy.geocoders import Nominatim
 from datetime import datetime
+from flask_cors import CORS
 
 # Initialize the Nominatim geocoder
 geolocator = Nominatim(user_agent="my_app")
@@ -43,7 +44,7 @@ def format_current_weather_data(data):
     sunrise = datetime.fromtimestamp(data['sys']['sunrise']).strftime('%I:%M %p')
     sunset = datetime.fromtimestamp(data['sys']['sunset']).strftime('%I:%M %p')
     pressure = data['main']['pressure']
-    uvi = data['uvi']
+    
 
     response = {
         'city': city,
@@ -57,13 +58,13 @@ def format_current_weather_data(data):
         'sunrise': sunrise,
         'sunset': sunset,
         'pressure': pressure,
-        'uvi': uvi
+        
     }
     return response
 
 app = Flask(__name__)
+CORS(app)
 
-# This is the function that would be called by the front-end to get the location coordinates
 @app.route('/get_location_coordinates', methods=['GET'])
 def get_location_coordinates_from_front_end():
     location = request.args.get('location')
@@ -74,7 +75,6 @@ def get_location_coordinates_from_front_end():
     }
     return jsonify(response)
 
-# This is the function that would be called by the front-end to get the current weather data
 @app.route('/get_current_weather_data', methods=['POST'])
 def get_current_weather_data_from_backend():
     data = request.get_json()
@@ -84,7 +84,6 @@ def get_current_weather_data_from_backend():
     weather_response = format_current_weather_data(weather_data)
     return jsonify(weather_response)
 
-# This is the function that would be called by the front-end to get the current weather data with a different parsing of the string input
 @app.route('/get_current_weather_data_different_parsing', methods=['POST'])
 def get_current_weather_data_from_backend_different_parsing():
     data = request.get_json()
