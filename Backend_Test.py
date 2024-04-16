@@ -1,4 +1,5 @@
 # Get the user's input
+import requests 
 location = input("Enter a location: ")
 
 # Geocode the location to get the latitude and longitude

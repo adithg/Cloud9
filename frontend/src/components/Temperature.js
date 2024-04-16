@@ -27,7 +27,7 @@ const Temperature = ({ temperature, description, humidity, feelsLike, time }) =>
 
   return (
     <div className="max-w-5xl mx-auto mt-16">
-      <div className="grid grid-cols-4 items-center">
+      <div className="grid grid-cols-5 items-center">
         <div className="col-span-1">
           <img src={weatherIcon} className="h-[15rem] w-[15rem]" alt="Weather Icon" />
         </div>
@@ -44,8 +44,8 @@ const Temperature = ({ temperature, description, humidity, feelsLike, time }) =>
         </div>
         <div className="col-span-1">
           <div className="flex items-center">
-            <div className="text-4xl font-medium text-gray-100 mr-2 p-3">Humidity: </div>
-            <div className="text-4xl font-medium text-gray-100 ">
+            <div className="text-3xl font-medium text-gray-100 mr-2 p-3">Humidity: </div>
+            <div className="text-3xl font-medium text-gray-100 ">
               {humidity ? `${humidity}%` : 'Loading...'}
             </div>
           </div>
