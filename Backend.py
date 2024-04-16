@@ -1,7 +1,8 @@
 import requests
 import json
-from flask import Flask, request, jsonify
+from flask import Flask, app, request, jsonify
 from geopy.geocoders import Nominatim
+from datetime import datetime
 
 # Initialize the Nominatim geocoder
 geolocator = Nominatim(user_agent="my_app")
@@ -39,6 +40,9 @@ def format_current_weather_data(data):
     weather_description = data['weather'][0]['description']
     wind_speed = data['wind']['speed']
     wind_deg = data['wind']['deg']
+    sunrise = datetime.fromtimestamp(data['sys']['sunrise']).strftime('%I:%M %p')
+    sunset = datetime.fromtimestamp(data['sys']['sunset']).strftime('%I:%M %p')
+    pressure = data['main']['pressure']
 
     response = {
         'city': city,
@@ -48,7 +52,10 @@ def format_current_weather_data(data):
         'humidity': humidity,
         'weather_description': weather_description,
         'wind_speed': wind_speed,
-        'wind_deg': wind_deg
+        'wind_deg': wind_deg,
+        'sunrise': sunrise,
+        'sunset': sunset,
+        'pressure': pressure
     }
     return response
 
