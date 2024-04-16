@@ -43,6 +43,7 @@ def format_current_weather_data(data):
     sunrise = datetime.fromtimestamp(data['sys']['sunrise']).strftime('%I:%M %p')
     sunset = datetime.fromtimestamp(data['sys']['sunset']).strftime('%I:%M %p')
     pressure = data['main']['pressure']
+    uvi = data['uvi']
 
     response = {
         'city': city,
@@ -55,7 +56,8 @@ def format_current_weather_data(data):
         'wind_deg': wind_deg,
         'sunrise': sunrise,
         'sunset': sunset,
-        'pressure': pressure
+        'pressure': pressure,
+        'uvi': uvi
     }
     return response
 
