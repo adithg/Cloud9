@@ -18,7 +18,7 @@ const Temperature = ({ city, temperature, description, humidity, feelsLike, time
     if (hour >= 6 && hour < 18) {
       setDefaultIcon(Sunny);
     } else {
-      setDefaultIcon(Night);
+      setDefaultIcon(Sunny);
     }
   }, [time]);
 
