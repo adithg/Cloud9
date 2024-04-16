@@ -1,17 +1,27 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Sunny from '../Icons/Sunny.svg';
 import NightCloudy from '../Icons/NightCloudy.svg';
 import Night from '../Icons/Night.svg';
 
 const icons = {
-  Sunny: Sunny,
-  NightCloudy: NightCloudy,
-  Night: Night,
+  Sunny,
+  NightCloudy,
+  Night,
 };
 
-const Temperature = ({ temperature, description, humidity, feelsLike }) => {
-  // Default icon if no match is found or description is missing
-  const defaultIcon = Sunny; // Choose an appropriate default icon
+const Temperature = ({ temperature, description, humidity, feelsLike, time }) => {
+  const [defaultIcon, setDefaultIcon] = useState(Sunny);
+
+  useEffect(() => {
+    const date = new Date(time);
+    const hour = date.getHours();
+    if (hour >= 6 && hour < 18) {
+      setDefaultIcon(Sunny);
+    } else {
+      setDefaultIcon(Sunny);
+    }
+  }, [time]);
+
   // Safety check for description
   const weatherIcon = description ? icons[description.split(',')[0]] || defaultIcon : defaultIcon;
 
@@ -21,12 +31,15 @@ const Temperature = ({ temperature, description, humidity, feelsLike }) => {
         <div className="col-span-1">
           <img src={weatherIcon} className="h-[15rem] w-[15rem]" alt="Weather Icon" />
         </div>
-        <div className="col-span-2">
+        <div className="col-span-3">
           <div className="text-9xl font-bold mb-2 text-gray-100">
             {temperature ? `${temperature}°F` : 'Loading...'}
           </div>
           <div className="text-3xl font-medium text-gray-100">
             {description || 'Loading description...'}
+          </div>
+          <div className="text-3xl font-medium text-gray-100">
+            {time ? time : 'Loading time...'}
           </div>
         </div>
         <div className="col-span-1">
