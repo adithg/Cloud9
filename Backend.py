@@ -50,6 +50,7 @@ def format_current_weather_data(data):
         'city': city,
         'country': country,
         'temperature': temperature,
+        'description': weather_description,
         'feels_like': feels_like,
         'humidity': humidity,
         'weather_description': weather_description,
