@@ -2,10 +2,8 @@ import React, { useState } from 'react';
 import Header from './Header';
 import Sunrise from './Sunrise';
 import Sunset from './Sunset';
-import UVI from './UVI';
 import Pressure from './Pressure';
 import Temperature from './Temperature';
-import HourlyCard from './HourlyCard';
 import Sunny from '../Icons/SunnyWhite.svg';
 import NightCloudy from '../Icons/NightCloudyWhite.svg';
 import Night from '../Icons/NightWhite.svg';
@@ -29,6 +27,7 @@ const icons = {
 
 const App = () => {
   const [temperature, setTemperature] = useState(null);
+  const [time,setTime] = useState('');
   const [sunrise, setSunrise] = useState('');
   const [sunset, setSunset] = useState('');
   const [pressure, setPressure] = useState(null);
@@ -41,6 +40,7 @@ const App = () => {
       <Header 
       setTemperature={setTemperature}
       setSunrise={setSunrise}
+      setTime={setTime}
       setSunset={setSunset}
       setPressure={setPressure}
       setWindSpeed={setWindSpeed}
@@ -51,6 +51,7 @@ const App = () => {
         temperature={temperature}
         description={description}
         humidity={humidity}
+        time={time}
         wind={windSpeed}
         feelsLike={feelsLike}
       />
