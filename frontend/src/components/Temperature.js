@@ -22,12 +22,8 @@ const Temperature = ({ temperature, description, humidity, wind, feelsLike }) =>
         </div>
         <div className="col-span-1">
           <div className="flex items-center">
-            <div className="text-4xl font-medium text-gray-100 mr-2 p-3">H</div>
+            <div className="text-4xl font-medium text-gray-100 mr-2 p-3">Humidity</div>
             <div className="text-4xl font-medium text-gray-100 ">{humidity}%</div>
-          </div>
-          <div className="flex items-center">
-            <div className="text-4xl font-medium text-gray-100 mr-2 p-4">L</div>
-            <div className="text-4xl font-medium text-gray-100">{wind} mph</div>
           </div>
           <br />
           <div className="text-3xl font-medium mb-2 text-gray-100">Feels Like {feelsLike}°</div>
