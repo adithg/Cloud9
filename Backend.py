@@ -70,7 +70,7 @@ def format_current_weather_data(data):
         'sunset': sunset.strftime('%I:%M %p'),
         'pressure': pressure,
         'time': time.strftime('%I:%M %p'),
-        'timezone_offset': timezone_offset_hours  # Add this line
+        'timezone_offset': timezone_offset_hours 
     }
     return response
 

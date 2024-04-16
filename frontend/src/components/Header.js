@@ -10,6 +10,7 @@ const Header = ({
   setHumidity,
   setFeelsLike,
   setTime,
+  setCity,
   setDescription
 }) => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -32,7 +33,8 @@ const Header = ({
 
     axios.post('http://127.0.0.1:5000/get_current_weather_data_different_parsing', { location: term })
       .then(response => {
-        const { temperature, sunrise, sunset, pressure, wind_speed, humidity, feels_like, description,time } = response.data;
+        const { city,temperature, sunrise, sunset, pressure, wind_speed, humidity, feels_like, description,time } = response.data;
+        setCity(city);
         setTemperature(temperature);
         setSunrise(sunrise);
         setSunset(sunset);
@@ -43,6 +45,7 @@ const Header = ({
         setDescription(description);
         setTime(time);
         setSearchTerm('');
+
       })
       .catch(error => {
         console.error(error);

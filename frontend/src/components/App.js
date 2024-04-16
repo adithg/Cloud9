@@ -28,6 +28,7 @@ const icons = {
 const App = () => {
   const [temperature, setTemperature] = useState(null);
   const [time,setTime] = useState('');
+  const [city,setCity] = useState('');
   const [sunrise, setSunrise] = useState('');
   const [sunset, setSunset] = useState('');
   const [pressure, setPressure] = useState(null);
@@ -46,7 +47,9 @@ const App = () => {
       setWindSpeed={setWindSpeed}
       setHumidity={setHumidity}
       setFeelsLike={setFeelsLike}
-      setDescription={setDescription}/>
+      setDescription={setDescription}
+      setCity = {setCity}/>
+      
       <Temperature
         temperature={temperature}
         description={description}
@@ -54,6 +57,7 @@ const App = () => {
         time={time}
         wind={windSpeed}
         feelsLike={feelsLike}
+        city = {city}
       />
       <div className="text-3xl font-medium max-w-5xl mx-auto mt-16 text-gray-100">
         Details

@@ -9,7 +9,7 @@ const icons = {
   Night,
 };
 
-const Temperature = ({ temperature, description, humidity, feelsLike, time }) => {
+const Temperature = ({ city, temperature, description, humidity, feelsLike, time }) => {
   const [defaultIcon, setDefaultIcon] = useState(Sunny);
 
   useEffect(() => {
@@ -18,34 +18,36 @@ const Temperature = ({ temperature, description, humidity, feelsLike, time }) =>
     if (hour >= 6 && hour < 18) {
       setDefaultIcon(Sunny);
     } else {
-      setDefaultIcon(Sunny);
+      setDefaultIcon(Night);
     }
   }, [time]);
 
-  // Safety check for description
   const weatherIcon = description ? icons[description.split(',')[0]] || defaultIcon : defaultIcon;
 
   return (
     <div className="max-w-5xl mx-auto mt-16">
-      <div className="grid grid-cols-5 items-center">
+      <div className="grid grid-cols-4 items-center">
         <div className="col-span-1">
           <img src={weatherIcon} className="h-[15rem] w-[15rem]" alt="Weather Icon" />
         </div>
-        <div className="col-span-3">
+        <div className="col-span-2">
           <div className="text-9xl font-bold mb-2 text-gray-100">
             {temperature ? `${temperature}°F` : 'Loading...'}
           </div>
-          <div className="text-3xl font-medium text-gray-100">
+          <div className="text-2xl font-medium text-gray-100">
+            {city || 'Loading city...'}
+          </div>
+          <div className="text-2xl font-medium text-gray-100">
             {description || 'Loading description...'}
           </div>
-          <div className="text-3xl font-medium text-gray-100">
+          <div className="text-2xl font-medium text-gray-100">
             {time ? time : 'Loading time...'}
           </div>
         </div>
         <div className="col-span-1">
           <div className="flex items-center">
-            <div className="text-3xl font-medium text-gray-100 mr-2 p-3">Humidity: </div>
-            <div className="text-3xl font-medium text-gray-100 ">
+            <div className="text-4xl font-medium text-gray-100 ">Humidity: </div>
+            <div className="text-4xl font-medium text-gray-100 ">
               {humidity ? `${humidity}%` : 'Loading...'}
             </div>
           </div>
