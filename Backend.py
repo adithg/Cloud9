@@ -2,7 +2,8 @@ import requests
 import json
 from flask import Flask, request, jsonify
 from geopy.geocoders import Nominatim
-from datetime import datetime
+from datetime import datetime, timezone, timedelta
+
 from flask_cors import CORS
 
 # Initialize the Nominatim geocoder
@@ -41,10 +42,19 @@ def format_current_weather_data(data):
     weather_description = data['weather'][0]['description']
     wind_speed = data['wind']['speed']
     wind_deg = data['wind']['deg']
-    sunrise = datetime.fromtimestamp(data['sys']['sunrise']).strftime('%I:%M %p')
-    sunset = datetime.fromtimestamp(data['sys']['sunset']).strftime('%I:%M %p')
+    sunrise_timestamp = data['sys']['sunrise']
+    sunset_timestamp = data['sys']['sunset']
     pressure = data['main']['pressure']
-    
+    time_timestamp = data['dt']
+    timezone_offset = data['timezone']
+
+    # Convert timezone offset from seconds to hours
+    timezone_offset_hours = int(timezone_offset) / 3600
+
+    # Convert timestamps to datetime objects in the local timezone
+    sunrise = datetime.fromtimestamp(sunrise_timestamp, timezone.utc) + timedelta(hours=timezone_offset_hours)
+    sunset = datetime.fromtimestamp(sunset_timestamp, timezone.utc) + timedelta(hours=timezone_offset_hours)
+    time = datetime.fromtimestamp(time_timestamp, timezone.utc) + timedelta(hours=timezone_offset_hours)
 
     response = {
         'city': city,
@@ -56,10 +66,11 @@ def format_current_weather_data(data):
         'weather_description': weather_description,
         'wind_speed': wind_speed,
         'wind_deg': wind_deg,
-        'sunrise': sunrise,
-        'sunset': sunset,
+        'sunrise': sunrise.strftime('%I:%M %p'),
+        'sunset': sunset.strftime('%I:%M %p'),
         'pressure': pressure,
-        
+        'time': time.strftime('%I:%M %p'),
+        'timezone_offset': timezone_offset_hours  # Add this line
     }
     return response
 
