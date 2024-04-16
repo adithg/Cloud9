@@ -22,7 +22,6 @@ const Temperature = ({ temperature, description, humidity, feelsLike, time }) =>
     }
   }, [time]);
 
-  // Safety check for description
   const weatherIcon = description ? icons[description.split(',')[0]] || defaultIcon : defaultIcon;
 
   return (
@@ -31,14 +30,14 @@ const Temperature = ({ temperature, description, humidity, feelsLike, time }) =>
         <div className="col-span-1">
           <img src={weatherIcon} className="h-[15rem] w-[15rem]" alt="Weather Icon" />
         </div>
-        <div className="col-span-3">
+        <div className="col-span-2">
           <div className="text-9xl font-bold mb-2 text-gray-100">
             {temperature ? `${temperature}°F` : 'Loading...'}
           </div>
-          <div className="text-3xl font-medium text-gray-100">
+          <div className="text-2xl font-medium text-gray-100">
             {description || 'Loading description...'}
           </div>
-          <div className="text-3xl font-medium text-gray-100">
+          <div className="text-2xl font-medium text-gray-100">
             {time ? time : 'Loading time...'}
           </div>
         </div>
