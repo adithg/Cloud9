@@ -1,13 +1,13 @@
 import React from 'react';
 import Sunny from '../Icons/Sunny.svg';
-import NightCloudy from '../Icons/NightCloudy.svg';
-import Night from '../Icons/Night.svg';
+//import NightCloudy from '../Icons/NightCloudy.svg';
+//import Night from '../Icons/Night.svg';
 
-const icons = {
+/*const icons = {
     Sunny: Sunny,
     NightCloudy: NightCloudy,
     Night: Night,
-  };
+  }; */
 const Temperature = ({ temperature, description, humidity, wind, feelsLike }) => {
   return (
     <div className="max-w-5xl mx-auto mt-16">

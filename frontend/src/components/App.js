@@ -6,6 +6,7 @@ import Sunny from '../Icons/Sunny.svg';
 import NightCloudy from '../Icons/NightCloudy.svg';
 import Night from '../Icons/Night.svg';
 
+
 const icons = {
     Sunny: Sunny,
     NightCloudy: NightCloudy,
