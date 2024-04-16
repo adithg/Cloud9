@@ -43,7 +43,7 @@ const Temperature = ({ temperature, description, humidity, feelsLike, time }) =>
         </div>
         <div className="col-span-1">
           <div className="flex items-center">
-            <div className="text-4xl font-medium text-gray-100 mr-2 p-3">Humidity: </div>
+            <div className="text-4xl font-medium text-gray-100 ">Humidity: </div>
             <div className="text-4xl font-medium text-gray-100 ">
               {humidity ? `${humidity}%` : 'Loading...'}
             </div>
