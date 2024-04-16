@@ -34,10 +34,7 @@ const Temperature = ({ city, temperature, description, humidity, feelsLike, time
           <div className="text-9xl font-bold mb-2 text-gray-100">
             {temperature ? `${temperature}°F` : 'Loading...'}
           </div>
-          <div className="text-2xl font-medium text-gray-100">
-            {city || 'Loading city...'}
-          </div>
-          <div className="text-2xl font-medium text-gray-100">
+          <div className="text-3xl font-medium text-gray-100">
             {description || 'Loading description...'}
           </div>
           <div className="text-2xl font-medium text-gray-100">
