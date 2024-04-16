@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang = "en">
+<html>
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,22 +8,21 @@
     <link href="https://api.fontshare.com/v2/css?f[]=plus-jakarta-sans@800,400,500,600,700,300,200&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/@preline/preline@1.0.0/dist/hs-ui.bundle.min.js"></script>
-    <title>Weather App</title>
     <style>
       body {
         font-family: 'Plus Jakarta Sans', sans-serif;
       }
     </style>
   </head>
-<body class="bg-white">
+<body class="bg-gradient-to-b from-blue-600 to-sky-400"> <!-- bg-gradient-to-b from-blue-600 to-sky-400 -->
 
     <header class="flex flex-wrap md:justify-start md:flex-nowrap z-50 w-full text-sm px-4 sm:px-0">
-        <nav class="mt-8 relative max-w-5xl w-full bg-gray-100 border rounded-[36px] mx-2 py-8 px-4 md:flex md:items-center md:justify-between md:py-4 md:px-6 lg:px-8 xl:mx-auto" aria-label="Global">
+        <nav class="mt-8 relative max-w-5xl w-full bg-gray-100/[0.1] ring-gray-100/[0.3] ring-2 rounded-[36px] mx-2 py-8 px-4 md:flex md:items-center md:justify-between md:py-4 md:px-6 lg:px-8 xl:mx-auto" aria-label="Global">
           <div class="flex items-center justify-between">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-6 h-6">
-                <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
-              </svg>    
-              <div class="text-xl ml-4 font-medium">Search</div>  
+            <svg class="w-6 h-6 text-gray-100" fill="none" viewBox="0 0 24 24"  stroke-width="2.5" stroke="currentColor" class="w-6 h-6">
+  <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+</svg>
+              <div class="text-xl ml-4 font-medium text-gray-100">Search</div>  
         </div>
         </nav>
       </header>
@@ -33,23 +32,23 @@
       <div class="max-w-5xl mx-auto mt-16">
         <div class="grid grid-cols-4 items-center">
           <div class="col-span-1">
-            <img title="f" src="Icons/Sunny.svg" class="h-[15rem] w-[15rem]">
+            <img src="Icons/Sunny.svg" class="h-[15rem] w-[15rem]">
           </div>
           <div class="col-span-2">
-            <div class="text-9xl font-bold mb-2">77°</div>
-            <div class="text-3xl font-medium text-gray-500">Sunny, Clear Skies</div>
+            <div class="text-9xl font-bold mb-2 text-gray-100">77°</div>
+            <div class="text-3xl font-medium text-gray-100">Sunny, Clear Skies</div>
           </div>
           <div class="col-span-1">
             <div class="flex items-center">
-              <div class="text-4xl font-medium text-red-600 mr-2 p-3">H</div>
-              <div class="text-4xl font-medium ">82°</div>
+              <div class="text-4xl font-medium text-gray-100 mr-2 p-3">H</div>
+              <div class="text-4xl font-medium text-gray-100 ">82°</div>
             </div>
             <div class="flex items-center">
-              <div class="text-4xl font-medium text-blue-600 mr-2 p-4">L</div>
-              <div class="text-4xl font-medium ">60°</div>
+              <div class="text-4xl font-medium text-gray-100 mr-2 p-4">L</div>
+              <div class="text-4xl font-medium text-gray-100">60°</div>
             </div>
             <br>
-            <div class="text-3xl font-medium mb-2 text-red-600">Feels Like 60°</div>
+            <div class="text-3xl font-medium mb-2 text-gray-100">Feels Like 60°</div>
           </div>
         </div>
       </div>
@@ -57,37 +56,38 @@
       <!--Hourly Area-->
 
       <div class="text-3xl font-medium max-w-5xl mx-auto mt-16 text-gray-100"> Hourly </div>
-      <div class="grid grid-cols-6 max-w-5xl mx-auto">
-        <div class="col-span-1 max-w-3xl mx-auto bg-gray-100/[0.1] border-gray-100/[0.3] border-2 rounded-xl flex flex-col justify-center items-center px-6 py-6 mt-8">
-            <div class="font-medium text-xl text-gray-100"> Now </div>
-            <div> <img src="Icons/Sunny White.svg" class="h-24 w-24"> </div>
-            <div class="font-medium text-2xl text-gray-100"> 7pm </div>
+      <div class="grid grid-cols-5 max-w-5xl mx-auto">
+        <div class="col-span-1 max-w-4xl mx-auto bg-gray-100/[0.1] border-gray-100/[0.3] border-2 rounded-xl flex flex-col justify-center items-center px-10 py-8 mt-8">
+            <div class="font-medium text-xl text-gray-100"> Wind </div>
+            <div> <img src="Icons/Wind White.svg" class="h-24 w-24"> </div>
+            <div class="font-medium text-2xl text-gray-100"> 34 kts </div>
         </div>
-        <div class="col-span-1 max-w-3xl mx-auto bg-gray-100/[0.1] border-gray-100/[0.3] border-2 rounded-xl flex flex-col justify-center items-center px-6 py-6 mt-8">
-            <div class="font-medium text-xl text-gray-100"> Now </div>
-            <div> <img src="Icons/Night Cloudy White.svg" class="h-24 w-24"> </div>
-            <div class="font-medium text-2xl text-gray-100"> 7pm </div>
+        <div class="col-span-1 max-w-4xl mx-auto bg-gray-100/[0.1] border-gray-100/[0.3] border-2 rounded-xl flex flex-col justify-center items-center px-10 py-8 mt-8">
+            <div class="font-medium text-xl text-gray-100"> Sunrise </div>
+            <div> <img src="Icons/Sunrise White.svg" class="h-24 w-24"> </div>
+            <div class="font-medium text-2xl text-gray-100"> 7:19 am </div>
         </div>
-        <div class="col-span-1 max-w-3xl mx-auto bg-gray-100/[0.1] border-gray-100/[0.3] border-2 rounded-xl flex flex-col justify-center items-center px-6 py-6 mt-8">
-            <div class="font-medium text-xl text-gray-100"> Now </div>
-            <div> <img src="Icons/Night Cloudy White.svg" class="h-24 w-24"> </div>
-            <div class="font-medium text-2xl text-gray-100"> 7pm </div>
+        <div class="col-span-1 max-w-4xl mx-auto bg-gray-100/[0.1] border-gray-100/[0.3] border-2 rounded-xl flex flex-col justify-center items-center px-10 py-8 mt-8">
+            <div class="font-medium text-xl text-gray-100"> Sunset </div> 
+            <div> <img src="Icons/Sunset White.svg" class="h-24 w-24"> </div>
+            <div class="font-medium text-2xl text-gray-100"> 6:34 pm </div>
         </div>
-        <div class="col-span-1 max-w-3xl mx-auto bg-gray-100/[0.1] border-gray-100/[0.3] border-2 rounded-xl flex flex-col justify-center items-center px-6 py-6 mt-8">
-            <div class="font-medium text-xl text-gray-100"> Now </div>
-            <div> <img src="Icons/Night White.svg" class="h-24 w-24"> </div>
-            <div class="font-medium text-2xl text-gray-100"> 7pm </div>
+        <div class="col-span-1 max-w-4xl mx-auto bg-gray-100/[0.1] border-gray-100/[0.3] border-2 rounded-xl flex flex-col justify-center items-center px-10 py-8 mt-8">
+            <div class="font-medium text-xl text-gray-100"> UVI </div>
+            <div> <img src="Icons/Uv White.svg" class="h-24 w-24"> </div>
+            <div class="font-medium text-2xl text-gray-100"> 78 </div>
         </div>
-        <div class="col-span-1 max-w-3xl mx-auto bg-gray-100/[0.1] border-gray-100/[0.3] border-2 rounded-xl flex flex-col justify-center items-center px-6 py-6 mt-8">
-            <div class="font-medium text-xl text-gray-100"> Now </div>
-            <div> <img src="Icons/Night White.svg" class="h-24 w-24"> </div>
-            <div class="font-medium text-2xl text-gray-100"> 7pm </div>
-        </div>
-        <div class="col-span-1 max-w-3xl mx-auto bg-gray-100/[0.1] border-gray-100/[0.3] border-2 rounded-xl flex flex-col justify-center items-center px-6 py-6 mt-8">
-            <div class="font-medium text-xl text-gray-100"> Now </div>
-            <div> <img src="Icons/Night White.svg" class="h-24 w-24"> </div>
-            <div class="font-medium text-2xl text-gray-100"> 7pm </div>
+        <div class="col-span-1 max-w-4xl mx-auto bg-gray-100/[0.1] border-gray-100/[0.3] border-2 rounded-xl flex flex-col justify-center items-center px-10 py-8 mt-8">
+            <div class="font-medium text-xl text-gray-100"> Pressure </div>
+            <div> <img src="Icons/Pressure White.svg" class="h-24 w-24"> </div>
+            <div class="font-medium text-2xl text-gray-100"> 954 hpa </div>
         </div>
       </div>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
 </body>
 </html>
