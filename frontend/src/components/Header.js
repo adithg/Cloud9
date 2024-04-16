@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 
 const Header = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -19,10 +20,16 @@ const Header = () => {
       return;
     }
 
-    // Implement your search logic here
-    console.log(`Searching for: ${term}`);
-    setSearchTerm('');
-    alert(`Searching for: ${term}`);
+    axios.post('http://127.0.0.1:5000//get_current_weather_data_different_parsing', { location: term })
+      .then(response => {
+        const weatherData = response.data;
+        alert(JSON.stringify(weatherData));
+        setSearchTerm('');
+      })
+      .catch(error => {
+        console.error(error);
+        alert('Error fetching weather data');
+      });
   };
 
   return (
