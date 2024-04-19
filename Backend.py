@@ -55,7 +55,7 @@ def format_current_weather_data(data):
     sunrise = datetime.fromtimestamp(sunrise_timestamp, timezone.utc) + timedelta(hours=timezone_offset_hours)
     sunset = datetime.fromtimestamp(sunset_timestamp, timezone.utc) + timedelta(hours=timezone_offset_hours)
     time = datetime.fromtimestamp(time_timestamp, timezone.utc) + timedelta(hours=timezone_offset_hours)
-
+    #create the response object
     response = {
         'city': city,
         'country': country,
@@ -73,10 +73,10 @@ def format_current_weather_data(data):
         'timezone_offset': timezone_offset_hours 
     }
     return response
-
+#intitialize the app
 app = Flask(__name__)
 CORS(app)
-
+#Converts the location to coordinates
 @app.route('/get_location_coordinates', methods=['GET'])
 def get_location_coordinates_from_front_end():
     location = request.args.get('location')
@@ -86,7 +86,7 @@ def get_location_coordinates_from_front_end():
         'longitude': lon
     }
     return jsonify(response)
-
+#fetches weather data
 @app.route('/get_current_weather_data', methods=['POST'])
 def get_current_weather_data_from_backend():
     data = request.get_json()
@@ -95,7 +95,7 @@ def get_current_weather_data_from_backend():
     weather_data = get_current_weather_data(lat, lon)
     weather_response = format_current_weather_data(weather_data)
     return jsonify(weather_response)
-
+#Fixes a problem with the data parsing
 @app.route('/get_current_weather_data_different_parsing', methods=['POST'])
 def get_current_weather_data_from_backend_different_parsing():
     data = request.get_json()
