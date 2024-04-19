@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Header from './Header';
 import Sunrise from './Sunrise';
 import Sunset from './Sunset';
@@ -25,6 +25,8 @@ const icons = {
   UvWhite: UvWhite
 };
 
+
+
 const App = () => {
   const [temperature, setTemperature] = useState(null);
   const [time,setTime] = useState('');
@@ -36,8 +38,14 @@ const App = () => {
   const [humidity, setHumidity] = useState(null);
   const [feelsLike, setFeelsLike] = useState(null);
   const [description, setDescription] = useState('');
+  const date = new Date(time);
+const timestring = time;
+const hour = parseInt(timestring.substring(0, 2));
+const timeofday = hour >= 6 && hour < 18 ? "bg-gradient-to-b from-blue-600 to-sky-400" : "bg-gradient-to-b from-black to-purple-500";
+
   return (
-    <div className="bg-gradient-to-b from-blue-600 to-sky-400">
+    
+    <div className={timeofday}>
       <Header 
       setTemperature={setTemperature}
       setSunrise={setSunrise}
