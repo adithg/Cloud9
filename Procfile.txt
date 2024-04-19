@@ -1,3 +1,0 @@
-web: node App.js
-web: gunicorn weatherapp:app
-
