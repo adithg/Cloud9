@@ -66,10 +66,10 @@ def format_current_weather_data(data):
         'weather_description': weather_description,
         'wind_speed': wind_speed,
         'wind_deg': wind_deg,
-        'sunrise': sunrise.strftime('%I:%M %p'),
-        'sunset': sunset.strftime('%I:%M %p'),
+        'sunrise': sunrise.strftime('%H:%M'),
+        'sunset': sunset.strftime('%H:%M'),
         'pressure': pressure,
-        'time': time.strftime('%I:%M %p'),
+        'time': time.strftime('%H:%M'),
         'timezone_offset': timezone_offset_hours 
     }
     return response

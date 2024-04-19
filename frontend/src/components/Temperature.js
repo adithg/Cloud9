@@ -18,9 +18,9 @@ const Temperature = ({ city, temperature, description, humidity, feelsLike, time
     const date = new Date(time);
     const timestring = time;
     const hour = parseInt(timestring.substring(0, 2));
-
+    
     const weatherDescription = getWeatherDescription(description);
-
+   
     if (hour >= 6 && hour < 18) {
       if (weatherDescription === "sunny") {
         setDefaultIcon(Sunny);
