@@ -1,0 +1,8 @@
+{
+    "scripts": {
+      "build": "cd frontend && npm install && npm run build",
+      "start": "python Backend.py",
+      "heroku-postbuild": "npm run build"
+    }
+  }
+  
