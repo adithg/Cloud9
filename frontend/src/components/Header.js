@@ -31,7 +31,7 @@ const Header = ({
       return;
     }
 
-    axios.post('http://127.0.0.1:5000/get_current_weather_data_different_parsing', { location: term })
+    axios.post('https://weather-app12-66c36cee09bd.herokuapp.com/get_current_weather_data_different_parsing', { location: term })
       .then(response => {
         const { city,temperature, sunrise, sunset, pressure, wind_speed, humidity, feels_like, description,time } = response.data;
         setCity(city);

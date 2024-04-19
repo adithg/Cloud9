@@ -4,7 +4,7 @@ from flask import Flask, request, jsonify
 from geopy.geocoders import Nominatim
 from datetime import datetime, timezone, timedelta
 
-from flask_cors import CORS
+#from flask_cors import CORS
 
 # Initialize the Nominatim geocoder
 geolocator = Nominatim(user_agent="my_app")
@@ -75,7 +75,7 @@ def format_current_weather_data(data):
     return response
 #intitialize the app
 app = Flask(__name__)
-CORS(app)
+#CORS(app)
 #Converts the location to coordinates
 @app.route('/get_location_coordinates', methods=['GET'])
 def get_location_coordinates_from_front_end():
