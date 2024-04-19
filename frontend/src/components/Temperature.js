@@ -32,28 +32,27 @@ const Temperature = ({ city, temperature, description, humidity, feelsLike, time
         </div>
         <div className="col-span-2">
           <div className="text-9xl font-bold mb-2 text-gray-100">
-            {temperature ? `${temperature}°F` : 'Loading...'}
+            {temperature ? `${temperature}°F` : ''}
           </div>
           <div className="text-2xl font-medium text-gray-100">
-            {city || 'Loading city...'}
+            {city || ''}
           </div>
           <div className="text-2xl font-medium text-gray-100">
-            {description || 'Loading description...'}
+            {description || ''}
           </div>
           <div className="text-2xl font-medium text-gray-100">
-            {time ? time : 'Loading time...'}
+            {time ? time : ''}
           </div>
         </div>
         <div className="col-span-1">
           <div className="flex items-center">
-            <div className="text-4xl font-medium text-gray-100 ">Humidity: </div>
-            <div className="text-4xl font-medium text-gray-100 ">
-              {humidity ? `${humidity}%` : 'Loading...'}
+            <div className="text-3xl font-medium mb-2 text-gray-100 ">
+            Humidity: {humidity ? `${humidity}%` : ''}
             </div>
           </div>
           <br />
           <div className="text-3xl font-medium mb-2 text-gray-100">
-            Feels Like:  {feelsLike ? `${feelsLike}°F` : 'Loading...'}
+            Feels Like:  {feelsLike ? `${feelsLike}°F` : ''}
           </div>
         </div>
       </div>

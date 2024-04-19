@@ -64,7 +64,7 @@ const Header = ({
           </button>
           <input
             type="text"
-            placeholder="Search"
+            placeholder="Search for a city"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             className="text-xl ml-4 font-medium appearance-none border-0 focus:outline-none bg-gray-100/[0.0] py-2 px-4 text-gray-100 placeholder:text-gray-100 placeholder:bg-transparent"
