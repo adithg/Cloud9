@@ -36,10 +36,10 @@ const Temperature = ({ city, temperature, description, humidity, feelsLike, time
     }
   }, [time, description]);
 
-  function getWeatherDescription(weatherDescription) {
-    if (weatherDescription.includes("clear")) {
+    function getWeatherDescription(weatherDescription) {
+    if (weatherDescription.includes("Clear")) {
       return "sunny";
-    } else if (weatherDescription.includes("cloud")) {
+    } else if (weatherDescription.includes("cloud"&&"Cloud")) {
       return "cloudy";
     } else {
       return "unknown";
